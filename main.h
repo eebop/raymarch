@@ -13,7 +13,8 @@
 typedef struct {
     int collision;
     int steps;
-    int min_distance;
+    double min_distance;
+    double distance;
 } data;
 
 typedef struct {

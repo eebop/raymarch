@@ -9,27 +9,35 @@ double dist(double i, double j, double k) {
     return sqrt(i * i + j * j + k * k) - 1;
 }
 
-data find_one(quaternion loc, quaternion *vec) {
-    quaternion p = loc;
+data find_one(quaternion p, quaternion *vec) {
     //p.i = fmod(p.i, 10);
-    double d = dist(p.i-5, p.j-0, p.k-0);
+    double d;
     data a;
     a.collision = 0;
-    a.min_distance = d;
+    a.min_distance = INFINITY;
     a.steps = 0;
-    while ((d > 0.1 && d < 1000) && a.steps < 500) {
+    a.distance = 0;
+    goto enter;
+    do {
+        a.steps++;
         p.i += vec->i * d;
         p.j += vec->j * d;
         p.k += vec->k * d;
-        //p.i = fmod(p.i, 10);
+        //p.i = fmod(p.i, 16);
+        //p.j = fmod(p.j, 16);
+        //p.k = fmod(p.k, 16);
+        enter:
+        d = dist(p.i-5, p.j-5, p.k-5);
+        a.distance += d;
         if (d < a.min_distance) {
             a.min_distance = d;
         }
-        a.steps++;
-        d = dist(p.i-5, p.j, p.k);
-    }
-    if (a.min_distance <= 0.1) {
+    } while ((d > 0 && d < 1000) && (a.steps ^ 0xFF));
+    if (a.min_distance <= 0) {
         a.collision = 255;
+    }
+    if (a.collision) {
+        printf("%f\n", a.distance);
     }
     return a;
 }
@@ -74,6 +82,7 @@ int main() {
 
         }
         CREATE_QUATERNION(pos, s->c.cx, s->c.cy, s->c.cz);
+#pragma omp for
         for (int x=0;x!=800;x++) {
             for (int y=0;y!=800;y++) {
                 double xangle = (x - 400) / (180 * 800 / (s->settings.fov * M_PI));
@@ -88,10 +97,12 @@ int main() {
                 //     DEBUG_QUATERNION(&pos);
                 // }
                 data d = find_one(pos, &dir);
-                SDL_SetRenderDrawColor(r, d.collision, d.min_distance, d.steps, 0xFF);
+                //SDL_SetRenderDrawColor(r, fmin(((double) d.collision * 100.0) / d.distance, 255), 0, 0, 0xFF);
+                if (d.min_distance < 0)
                 SDL_RenderDrawPoint(r, x, y);
             }
         }
         SDL_RenderPresent(r);
+        printf("step done\n");
     }
 }
