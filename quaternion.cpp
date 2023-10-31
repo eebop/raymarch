@@ -2,10 +2,6 @@
 #include <immintrin.h>
 #include "quaternion.h"
 
-quaternion *newQuaternion(void) {
-    quaternion *q = malloc(sizeof(quaternion));
-    return q;
-}
 
 #ifdef __AVX__
 void multiplyQuaternion(quaternion *q1, quaternion *q2, quaternion *qout) {

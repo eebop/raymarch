@@ -4,6 +4,14 @@
 #include "quaternion.h"
 
 static quaternion rotations[6] = {
+    quaternion(-0.024541228522912288, 0, 0, 0.9996988186962042),
+    quaternion(0, -0.024541228522912288, 0, 0.9996988186962042),
+    quaternion(0, 0, -0.024541228522912288, 0.9996988186962042),
+    quaternion(0.024541228522912288, 0, 0,  0.9996988186962042),
+    quaternion(0, 0.024541228522912288, 0,  0.9996988186962042),
+    quaternion(0, 0, 0.024541228522912288,  0.9996988186962042)
+};
+/*
     {0.9996988186962042, -0.024541228522912288, 0, 0},
     {0.9996988186962042, 0, -0.024541228522912288, 0},
     {0.9996988186962042, 0, 0, -0.024541228522912288},
@@ -11,6 +19,7 @@ static quaternion rotations[6] = {
     {0.9996988186962042,  0, 0.024541228522912288, 0},
     {0.9996988186962042,  0, 0, 0.024541228522912288}
 };
+*/
 
 void submitQuaternionRotation(scene *s, quaternion *rotation) {
     multiplyQuaternion(rotation, &(s->c.q), &(s->c.q));
@@ -24,8 +33,10 @@ void submitRotation(scene *s, int rotation, int direction) {
 void mouseUpdate(SDL_Event event, scene *s) {
     // we can't use xrel and yrel because warping generates a mousemotion event
     //printf("%d %d\n", event.motion.x, event.motion.y);
-    submitQuaternionRotation(s, &((quaternion) {SDL_cos((-(double)event.motion.xrel) / 1024.0), 0, SDL_sin((-(double)event.motion.xrel) / 1024.0), 0}));
-    submitQuaternionRotation(s, &((quaternion) {SDL_cos(( (double)event.motion.yrel) / 1024.0), 0, 0, SDL_sin(( (double)event.motion.yrel) / 1024.0)}));
+    quaternion x = quaternion(0, SDL_sin((-(double)event.motion.xrel) / 1024.0), 0, SDL_cos((-(double)event.motion.xrel) / 1024.0));
+    quaternion y = quaternion(0, 0, SDL_sin(( (double)event.motion.yrel) / 1024.0), SDL_cos(( (double)event.motion.yrel) / 1024.0));
+    submitQuaternionRotation(s, &x);
+    submitQuaternionRotation(s, &y);
 }
 
 void update_debug(SDL_Event event, scene *s) {
@@ -67,12 +78,12 @@ void update_debug(SDL_Event event, scene *s) {
             break;
         case SDLK_l:
             if (s->settings.grabMouse) {
-                SDL_SetRelativeMouseMode(SDL_DISABLE);
+                SDL_SetRelativeMouseMode(SDL_FALSE);
                 s->settings.grabMouse = 0;
 
             } else {
                 s->settings.grabMouse = 1;
-                SDL_SetRelativeMouseMode(SDL_ENABLE);
+                SDL_SetRelativeMouseMode(SDL_TRUE);
             }
             break;
         default:
@@ -93,7 +104,7 @@ void update_debug(SDL_Event event, scene *s) {
             break;
         }
     }
-    CREATE_QUATERNION(q, i, j, k);
+    q = quaternion(i, j, k, 0);
     multiplyWithInverseFirstQuaternion(&(s->c.q), &q, &q);
     multiplyQuaternion(&q, &(s->c.q), &q);
 
