@@ -2,6 +2,7 @@
 #define __MAIN_H
 #include <math.h>
 #include "quaternion.h"
+#include <arrayfire.h>
 
 #ifndef M_PI_2
 #define M_PI_2 1.5707963267948966
@@ -13,7 +14,8 @@
 typedef struct {
     int collision;
     int steps;
-    int min_distance;
+    double min_distance;
+    double distance;
 } data;
 
 typedef struct {
@@ -26,9 +28,18 @@ typedef struct {
 typedef struct {
     double fov;
     int grabMouse;
+    int windowx;
+    int windowy;
 } scene_settings;
 
 typedef struct {
+    af::array *x;
+    af::array *y;
+    af::array *z;
+} points;
+
+typedef struct {
+    points p;
     camera c;
     scene_settings settings;
 } scene;

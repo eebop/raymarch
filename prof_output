@@ -1,0 +1,441 @@
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.318389' (creator: callgrind-3.18.1)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 2409349165
+Trigger: Program termination
+Profiled target:  ./main (PID 318389, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                      
+--------------------------------------------------------------------------------
+13,149,844,617 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                      file:function
+--------------------------------------------------------------------------------
+1,882,847,998 (14.32%)  main.c:find_one [/home/eebop/raymarch/main]
+1,105,407,318 ( 8.41%)  ???:0x0000000000067b00 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  760,320,108 ( 5.78%)  ???:0x0000000000059010 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  718,080,000 ( 5.46%)  ???:0x0000000000059240 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  690,072,498 ( 5.25%)  ./gmon/./gmon/mcount.c:__mcount_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  661,760,000 ( 5.03%)  ???:0x0000000000059450 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  626,496,235 ( 4.76%)  ???:0x00000000002633f0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  570,240,041 ( 4.34%)  ???:0x0000000000052150 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  443,643,165 ( 3.37%)  ./gmon/../sysdeps/x86_64/_mcount.S:mcount [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  412,993,630 ( 3.14%)  ???:0x0000000000267510 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  408,449,407 ( 3.11%)  main.c:main [/home/eebop/raymarch/main]
+  394,240,049 ( 3.00%)  ???:0x00000000000654c0 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  387,200,000 ( 2.94%)  ???:SDL_RenderDrawPoint [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  352,073,406 ( 2.68%)  ???:0x0000000000263aa0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  246,400,000 ( 1.87%)  ???:0x0000000000067110 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  246,332,485 ( 1.87%)  ???:0x0000000000262f90 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  204,160,014 ( 1.55%)  ???:0x00000000001241b0 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  171,261,236 ( 1.30%)  ???:0x00000000001ca920 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  168,995,630 ( 1.29%)  ???:0x0000000000315380 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  168,960,066 ( 1.28%)  ???:0x0000000000058f70 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  154,881,211 ( 1.18%)  ???:0x000000000011e4c0 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  154,880,286 ( 1.18%)  ???:0x00000000000ce960 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  133,797,221 ( 1.02%)  /usr/lib/gcc/x86_64-linux-gnu/11/include/avxintrin.h:multiplyQuaternion
+  133,797,088 ( 1.02%)  /usr/lib/gcc/x86_64-linux-gnu/11/include/avxintrin.h:multiplyWithInverseFirstQuaternion
+  133,760,532 ( 1.02%)  ???:0x00000000000cfa10 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  133,760,456 ( 1.02%)  ???:0x0000000000063ec0 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  126,812,246 ( 0.96%)  ???:0x0000000000316980 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+  126,720,432 ( 0.96%)  ???:SDL_SetRenderDrawColor [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+  119,681,323 ( 0.91%)  ./nptl/./nptl/pthread_getspecific.c:pthread_getspecific@@GLIBC_2.34 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+   98,595,955 ( 0.75%)  ???:0x0000000000315cc0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   98,587,426 ( 0.75%)  quaternion.c:multiplyQuaternion [/home/eebop/raymarch/main]
+   98,587,328 ( 0.75%)  quaternion.c:multiplyWithInverseFirstQuaternion [/home/eebop/raymarch/main]
+   86,256,498 ( 0.66%)  ???:0x000000000002ee90 [/opt/amdgpu/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0]
+   63,360,000 ( 0.48%)  ???:0x000000000031df90 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   63,360,000 ( 0.48%)  ???:0x000000000031f670 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   63,360,000 ( 0.48%)  ???:0x000000000041c1d0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   56,320,000 ( 0.43%)  ???:0x0000000000262f50 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   49,280,000 ( 0.37%)  ???:0x000000000031e660 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   45,995,255 ( 0.35%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+   42,240,003 ( 0.32%)  ???:0x00000000000654b0 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+   28,160,000 ( 0.21%)  ???:0x000000000000d440 [/opt/amdgpu/lib/x86_64-linux-gnu/libglapi.so.0.0.0]
+   28,160,000 ( 0.21%)  ???:0x000000000000d8c0 [/opt/amdgpu/lib/x86_64-linux-gnu/libglapi.so.0.0.0]
+   28,160,000 ( 0.21%)  ???:0x000000000000e360 [/opt/amdgpu/lib/x86_64-linux-gnu/libglapi.so.0.0.0]
+   28,160,000 ( 0.21%)  ???:0x0000000005ee53e0 [???]
+   28,160,000 ( 0.21%)  ???:0x0000000005eea200 [???]
+   28,160,000 ( 0.21%)  ???:0x0000000005efba00 [???]
+   23,420,866 ( 0.18%)  ???:0x000000000009a3d0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+   14,614,656 ( 0.11%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+   14,080,108 ( 0.11%)  ???:0x000000000496b970 [???]
+   14,080,048 ( 0.11%)  ???:0x0000000000109240 [???]
+   14,080,000 ( 0.11%)  ???:0x00000000001091f0 [???]
+   11,961,086 ( 0.09%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+   10,106,049 ( 0.08%)  ./libio/./libio/getc.c:getc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    8,578,181 ( 0.07%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+    8,234,161 ( 0.06%)  ???:0x0000000000061fd0 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    8,105,611 ( 0.06%)  ???:_XimParseStringFile [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    7,942,711 ( 0.06%)  ./string/../sysdeps/x86_64/multiarch/strcmp-avx2.S:__strcmp_avx2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    7,818,680 ( 0.06%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    7,048,108 ( 0.05%)  ./string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:__memset_avx2_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    7,041,959 ( 0.05%)  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:multiplyQuaternion
+    7,041,952 ( 0.05%)  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:multiplyWithInverseFirstQuaternion
+    6,964,008 ( 0.05%)  ???:0x0000000000061f70 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    6,691,631 ( 0.05%)  ./nptl/./nptl/pthread_mutex_lock.c:pthread_mutex_lock@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    6,590,356 ( 0.05%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    4,662,058 ( 0.04%)  ./nptl/./nptl/pthread_mutex_unlock.c:pthread_mutex_unlock@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    3,995,225 ( 0.03%)  ???:0x0000000000128c60 [/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2]
+    3,747,356 ( 0.03%)  ???:0x0000000000005490 [/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0]
+    3,708,860 ( 0.03%)  ???:0x0000000000016fa0 [/usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7]
+    3,569,678 ( 0.03%)  ???:XStringToKeysym [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    3,547,176 ( 0.03%)  ./elf/../sysdeps/x86_64/dl-machine.h:_dl_relocate_object
+    3,195,256 ( 0.02%)  ???:0x000000000004c190 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    3,087,325 ( 0.02%)  ???:0x0000000000013470 [/usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7]
+    2,851,830 ( 0.02%)  ???:0x00000000033abba0 [/opt/amdgpu/lib/x86_64-linux-gnu/llvm-15.0/lib/libLLVM-15.so]
+    2,798,031 ( 0.02%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    2,438,320 ( 0.02%)  ???:0x0000000000012e70 [/usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7]
+    2,433,228 ( 0.02%)  ./nptl/./nptl/pthread_cond_common.c:pthread_cond_signal@@GLIBC_2.3.2
+    2,408,239 ( 0.02%)  ???:0x0000000000289400 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+    2,351,920 ( 0.02%)  ???:0x0000000000cfae70 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+    2,227,344 ( 0.02%)  ???:_XrmInternalStringToQuark [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    2,127,706 ( 0.02%)  ???:llvm::PassRegistry::enumerateWith(llvm::PassRegistrationListener*) [/opt/amdgpu/lib/x86_64-linux-gnu/llvm-15.0/lib/libLLVM-15.so]
+    2,107,120 ( 0.02%)  ???:0x00000000000a6df0 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+    2,079,628 ( 0.02%)  ???:0x000000000001aa90 [/opt/amdgpu/lib/x86_64-linux-gnu/libglapi.so.0.0.0]
+    1,943,258 ( 0.01%)  ???:0x0000000000027890 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+    1,854,662 ( 0.01%)  ./nptl/./nptl/pthread_cond_signal.c:pthread_cond_signal@@GLIBC_2.3.2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+    1,776,508 ( 0.01%)  ./elf/./elf/do-rel.h:_dl_relocate_object
+    1,735,075 ( 0.01%)  ???:0x000000000000be40 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+    1,721,250 ( 0.01%)  ???:0x00000000000a1900 [/opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: quaternion.c
+--------------------------------------------------------------------------------
+Ir                  
+
+-- line 3 ----------------------------------------
+         .           #include "quaternion.h"
+         .           
+         .           quaternion *newQuaternion(void) {
+         .               quaternion *q = malloc(sizeof(quaternion));
+         .               return q;
+         .           }
+         .           
+         .           #ifdef __AVX__
+35,209,795 ( 0.27%)  void multiplyQuaternion(quaternion *q1, quaternion *q2, quaternion *qout) {
+401,372,079 ( 3.05%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (7,041,959x)
+         .               __m256d t = _mm256_loadu_pd((double *) q2);
+         .               __m256d i = _mm256_permute_pd(t, 5);
+         .               __m256d j = _mm256_castsi256_pd(_mm256_permute2x128_si256(_mm256_castpd_si256(t), _mm256_castpd_si256(t), 1));
+         .               __m256d k = _mm256_permute_pd(j, 5);
+         .               t = _mm256_mul_pd(t, _mm256_set_pd( q1->t,  q1->t,  q1->t,  q1->t));
+21,125,877 ( 0.16%)      i = _mm256_mul_pd(i, _mm256_set_pd(-q1->i,  q1->i,  q1->i, -q1->i));
+14,083,918 ( 0.11%)      j = _mm256_mul_pd(j, _mm256_set_pd( q1->j,  q1->j, -q1->j, -q1->j));
+14,083,918 ( 0.11%)      k = _mm256_mul_pd(k, _mm256_set_pd( q1->k, -q1->k,  q1->k, -q1->k));
+         .               __m256d qout_ = _mm256_add_pd(_mm256_add_pd(t, i), _mm256_add_pd(j, k));
+         .               _mm256_storeu_pd((double *) qout, qout_);
+14,083,918 ( 0.11%)  }
+35,209,760 ( 0.27%)  void multiplyWithInverseFirstQuaternion(quaternion *q1, quaternion *q2, quaternion *qout) {
+401,371,750 ( 3.05%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (7,041,952x)
+         .               __m256d t = _mm256_loadu_pd((double *) q2);
+         .               __m256d i = _mm256_permute_pd(t, 5);
+         .               __m256d j = _mm256_castsi256_pd(_mm256_permute2x128_si256(_mm256_castpd_si256(t), _mm256_castpd_si256(t), 1));
+         .               __m256d k = _mm256_permute_pd(j, 5);
+         .               t = _mm256_mul_pd(t, _mm256_set_pd( q1->t,  q1->t,  q1->t,  q1->t));
+21,125,856 ( 0.16%)      i = _mm256_mul_pd(i, _mm256_set_pd( q1->i, -q1->i, -q1->i,  q1->i));
+14,083,904 ( 0.11%)      j = _mm256_mul_pd(j, _mm256_set_pd(-q1->j, -q1->j,  q1->j,  q1->j));
+14,083,904 ( 0.11%)      k = _mm256_mul_pd(k, _mm256_set_pd(-q1->k,  q1->k, -q1->k,  q1->k));
+         .               __m256d qout_ = _mm256_add_pd(_mm256_add_pd(t, i), _mm256_add_pd(j, k));
+         .               _mm256_storeu_pd((double *) qout, qout_);
+14,083,904 ( 0.11%)  }
+         .           void multiplyWithInverseSecondQuaternion(quaternion *q1, quaternion *q2, quaternion *qout) {
+         .               __m256d t = _mm256_loadu_pd((double *) q2);
+         .               __m256d i = _mm256_permute_pd(t, 5);
+         .               __m256d j = _mm256_castsi256_pd(_mm256_permute2x128_si256(_mm256_castpd_si256(t), _mm256_castpd_si256(t), 1));
+         .               __m256d k = _mm256_permute_pd(j, 5);
+         .               t = _mm256_mul_pd(t, _mm256_set_pd(-q1->t, -q1->t, -q1->t,  q1->t));
+         .               i = _mm256_mul_pd(i, _mm256_set_pd( q1->i, -q1->i,  q1->i,  q1->i));
+         .               j = _mm256_mul_pd(j, _mm256_set_pd(-q1->j,  q1->j,  q1->j,  q1->j));
+-- line 42 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: main.c
+--------------------------------------------------------------------------------
+Ir                   
+
+          .           #include <stdio.h>
+          .           #include <stdlib.h>
+          .           #include <SDL2/SDL.h>
+          .           #include <math.h>
+          .           #include "main.h"
+          .           #include "events.h"
+          .           
+          .           double dist(double i, double j, double k) {
+496,782,041 ( 3.78%)      return sqrt(i * i + j * j + k * k) - 1;
+          .           }
+          .           
+ 91,520,000 ( 0.70%)  data find_one(quaternion p, quaternion *vec) {
+330,880,004 ( 2.52%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (7,040,000x)
+          .               //p.i = fmod(p.i, 10);
+          .               double d;
+          .               data a;
+          .               a.collision = 0;
+ 21,120,000 ( 0.16%)      a.min_distance = 255;
+ 28,160,000 ( 0.21%)      a.steps = 0;
+          .               do {
+          .                   // p.i = fmod(p.i, 10);
+          .                   // p.j = fmod(p.j, 10);
+          .                   // p.k = fmod(p.k, 10);
+212,906,589 ( 1.62%)          d = dist(p.i-5, p.j-5, p.k-5);
+212,906,589 ( 1.62%)          if (d < a.min_distance) {
+ 11,234,821 ( 0.09%)              a.min_distance = d;
+          .                   }
+ 70,968,863 ( 0.54%)          a.steps++;
+ 70,968,863 ( 0.54%)          p.i += vec->i * d;
+ 70,968,863 ( 0.54%)          p.j += vec->j * d;
+ 70,968,863 ( 0.54%)          p.k += vec->k * d;
+425,782,506 ( 3.24%)      } while ((d >= 0.1 && d < 1000) && a.steps < 254);
+          .               if (a.min_distance <= 0.1) {
+ 28,160,000 ( 0.21%)          a.collision = 255;
+          .               }
+ 28,160,000 ( 0.21%)      return a;
+ 42,240,000 ( 0.32%)  }
+          .           
+          4 ( 0.00%)  scene *allocScene(void) {
+         51 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+          2 ( 0.00%)      scene *s = malloc(sizeof(scene));
+        205 ( 0.00%)  => ???:0x0000000000109230 (1x)
+          4 ( 0.00%)      s->c.cx = 1;
+          .               s->c.cy = 0;
+          .               s->c.cz = 0;
+          .               s->c.q.i = 0;
+          .               s->c.q.j = 0;
+          .               s->c.q.k = 0;
+          .               s->c.q.t = 1;
+          .               s->settings.fov = 70;
+          1 ( 0.00%)      s->settings.grabMouse = 0;
+          1 ( 0.00%)      return s;
+          2 ( 0.00%)  }
+          .           
+         13 ( 0.00%)  int main() {
+         31 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+          2 ( 0.00%)      SDL_Init(SDL_INIT_VIDEO);
+278,948,590 ( 2.12%)  => ???:0x00000000001091e0 (1x)
+          8 ( 0.00%)      SDL_Window *w = SDL_CreateWindow("Test - Raymarch", 100, 100, 800, 800, SDL_TEXTUREACCESS_TARGET);
+  2,546,738 ( 0.02%)  => ???:0x0000000000109170 (1x)
+          4 ( 0.00%)      SDL_Renderer *r = SDL_CreateRenderer(w, 0, SDL_RENDERER_SOFTWARE | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+ 22,100,114 ( 0.17%)  => ???:0x0000000000109160 (1x)
+          .           
+          .               quaternion pos;
+          .               quaternion dir;
+          .               SDL_Event event;
+          4 ( 0.00%)      scene *s = allocScene();
+        270 ( 0.00%)  => main.c:allocScene (1x)
+          .           
+          .               while (1) {
+         83 ( 0.00%)          SDL_SetRenderDrawColor(r, 0, 0, 0, 0);
+        240 ( 0.00%)  => ???:0x0000000000109240 (12x)
+         24 ( 0.00%)          SDL_RenderClear(r);
+      3,522 ( 0.00%)  => ???:0x0000000000109200 (12x)
+         72 ( 0.00%)          SDL_SetRenderDrawColor(r, 255, 0, 0, 255);
+        240 ( 0.00%)  => ???:0x0000000000109240 (12x)
+          .           
+      7,856 ( 0.00%)          while (SDL_PollEvent(&event)) {
+ 61,673,572 ( 0.47%)  => ???:0x00000000001091a0 (1,964x)
+      3,906 ( 0.00%)              if (event.type == SDL_QUIT) {
+          .                           return 0;
+          .                       }
+     21,472 ( 0.00%)              update_debug(event, s);
+    506,858 ( 0.00%)  => /home/eebop/raymarch/events.c:update_debug (1,952x)
+      7,808 ( 0.00%)              if (s->settings.grabMouse && event.type == SDL_MOUSEMOTION) {
+          .                           mouseUpdate(event, s);
+          .                       }
+          .           
+          .                   }
+         88 ( 0.00%)          CREATE_QUATERNION(pos, s->c.cx, s->c.cy, s->c.cz);
+     26,422 ( 0.00%)          for (int x=0;x!=800;x++) {
+ 21,128,800 ( 0.16%)              for (int y=0;y!=800;y++) {
+ 49,332,800 ( 0.38%)                  double xangle = (x - 400) / (180 * 800 / (s->settings.fov * M_PI));
+ 35,200,000 ( 0.27%)                  double yangle = (y - 400) / (180 * 800 / (s->settings.fov * M_PI));
+          .                           //printf("%f, %f\n", xangle, yangle);
+ 42,240,000 ( 0.32%)                  double val = sqrt(xangle * xangle + yangle * yangle + 1);
+ 56,320,000 ( 0.43%)                  CREATE_QUATERNION(dir, 1 / val, yangle / val, xangle / val);
+ 28,160,011 ( 0.21%)                  multiplyQuaternion(&dir, &(s->c.q), &dir);
+640,639,994 ( 4.87%)  => /home/eebop/raymarch/quaternion.c:multiplyQuaternion (7,040,000x)
+ 28,160,000 ( 0.21%)                  multiplyWithInverseFirstQuaternion(&(s->c.q), &dir, &dir);
+640,640,002 ( 4.87%)  => /home/eebop/raymarch/quaternion.c:multiplyWithInverseFirstQuaternion (7,040,000x)
+          .                           // if (x == 400 && y == 400) {
+          .                           //     DEBUG_QUATERNION(&dir);
+          .                           //     DEBUG_QUATERNION(&pos);
+          .                           // }
+ 70,400,000 ( 0.54%)                  data d = find_one(pos, &dir);
+2,213,728,002 (16.83%)  => main.c:find_one (7,040,000x)
+ 49,280,000 ( 0.37%)                  SDL_SetRenderDrawColor(r, d.collision, d.min_distance, d.steps, 0xFF);
+140,800,000 ( 1.07%)  => ???:0x0000000000109240 (7,040,000x)
+ 28,160,000 ( 0.21%)                  SDL_RenderDrawPoint(r, x, y);
+6,558,969,654 (49.88%)  => ???:0x00000000001091f0 (7,040,000x)
+          .                       }
+          .                   }
+         22 ( 0.00%)          SDL_RenderPresent(r);
+  6,544,774 ( 0.05%)  => ???:0x0000000000109180 (11x)
+          .               }
+         12 ( 0.00%)  }
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /usr/lib/gcc/x86_64-linux-gnu/11/include/avxintrin.h
+--------------------------------------------------------------------------------
+Ir                   
+
+-- line 135 ----------------------------------------
+          .           /* Greater-than (ordered, non-signaling)  */
+          .           #define _CMP_GT_OQ	0x1e
+          .           /* True (unordered, signaling)  */
+          .           #define _CMP_TRUE_US	0x1f
+          .           
+          .           extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_add_pd (__m256d __A, __m256d __B)
+          .           {
+ 42,251,733 ( 0.32%)    return (__m256d) ((__v4df)__A + (__v4df)__B);
+          .           }
+          .           
+          .           extern __inline __m256 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_add_ps (__m256 __A, __m256 __B)
+          .           {
+          .             return (__m256) ((__v8sf)__A + (__v8sf)__B);
+          .           }
+          .           
+-- line 151 ----------------------------------------
+-- line 306 ----------------------------------------
+          .           _mm256_min_ps (__m256 __A, __m256 __B)
+          .           {
+          .             return (__m256) __builtin_ia32_minps256 ((__v8sf)__A, (__v8sf)__B);
+          .           }
+          .           
+          .           extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_mul_pd (__m256d __A, __m256d __B)
+          .           {
+ 28,167,822 ( 0.21%)    return (__m256d) ((__v4df)__A * (__v4df)__B);
+          .           }
+          .           
+          .           extern __inline __m256 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_mul_ps (__m256 __A, __m256 __B)
+          .           {
+          .             return (__m256) ((__v8sf)__A * (__v8sf)__B);
+          .           }
+          .           
+-- line 322 ----------------------------------------
+-- line 650 ----------------------------------------
+          .           _mm_permute_pd (__m128d __X, const int __C)
+          .           {
+          .             return (__m128d) __builtin_ia32_vpermilpd ((__v2df)__X, __C);
+          .           }
+          .           
+          .           extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_permute_pd (__m256d __X, const int __C)
+          .           {
+ 28,167,822 ( 0.21%)    return (__m256d) __builtin_ia32_vpermilpd256 ((__v4df)__X, __C);
+          .           }
+          .           
+          .           extern __inline __m128 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm_permute_ps (__m128 __X, const int __C)
+          .           {
+          .             return (__m128) __builtin_ia32_vpermilps ((__v4sf)__X, __C);
+          .           }
+          .           
+-- line 666 ----------------------------------------
+-- line 885 ----------------------------------------
+          .           _mm256_store_ps (float *__P, __m256 __A)
+          .           {
+          .             *(__m256 *)__P = __A;
+          .           }
+          .           
+          .           extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_loadu_pd (double const *__P)
+          .           {
+ 14,083,911 ( 0.11%)    return *(__m256d_u *)__P;
+          .           }
+          .           
+          .           extern __inline void __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_storeu_pd (double *__P, __m256d __A)
+          .           {
+ 28,167,822 ( 0.21%)    *(__m256d_u *)__P = __A;
+          .           }
+          .           
+          .           extern __inline __m256 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_loadu_ps (float const *__P)
+          .           {
+          .             return *(__m256_u *)__P;
+          .           }
+          .           
+-- line 907 ----------------------------------------
+-- line 1243 ----------------------------------------
+          .           {
+          .             return __extension__ (__m256i)(__v4di){ 0, 0, 0, 0 };
+          .           }
+          .           
+          .           /* Create the vector [A B C D].  */
+          .           extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_set_pd (double __A, double __B, double __C, double __D)
+          .           {
+126,755,199 ( 0.96%)    return __extension__ (__m256d){ __D, __C, __B, __A };
+          .           }
+          .           
+          .           /* Create the vector [A B C D E F G H].  */
+          .           extern __inline __m256 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+          .           _mm256_set_ps (float __A, float __B, float __C, float __D,
+          .           	       float __E, float __F, float __G, float __H)
+          .           {
+          .             return __extension__ (__m256){ __H, __G, __F, __E,
+-- line 1259 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h
+--------------------------------------------------------------------------------
+Ir                  
+
+-- line 1078 ----------------------------------------
+         .           #endif
+         .           
+         .           
+         .           #ifdef __OPTIMIZE__
+         .           extern __inline __m256i
+         .           __attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+         .           _mm256_permute2x128_si256 (__m256i __X, __m256i __Y, const int __M)
+         .           {
+14,083,911 ( 0.11%)    return (__m256i) __builtin_ia32_permti256 ((__v4di)__X, (__v4di)__Y, __M);
+         .           }
+         .           #else
+         .           #define _mm256_permute2x128_si256(X, Y, M)				\
+         .             ((__m256i) __builtin_ia32_permti256 ((__v4di)(__m256i)(X), (__v4di)(__m256i)(Y), (int)(M)))
+         .           #endif
+         .           
+         .           #ifdef __OPTIMIZE__
+         .           extern __inline __m128i
+-- line 1094 ----------------------------------------
+
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./elf/../sysdeps/x86_64/dl-machine.h
+  ./elf/./elf/dl-lookup.c
+  ./elf/./elf/do-rel.h
+  ./gmon/../sysdeps/x86_64/_mcount.S
+  ./gmon/./gmon/mcount.c
+  ./libio/./libio/getc.c
+  ./malloc/./malloc/malloc.c
+  ./nptl/./nptl/pthread_cond_common.c
+  ./nptl/./nptl/pthread_cond_signal.c
+  ./nptl/./nptl/pthread_getspecific.c
+  ./nptl/./nptl/pthread_mutex_lock.c
+  ./nptl/./nptl/pthread_mutex_unlock.c
+  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S
+  ./string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S
+  ./string/../sysdeps/x86_64/multiarch/strcmp-avx2.S
+
+--------------------------------------------------------------------------------
+Ir                     
+--------------------------------------------------------------------------------
+2,770,150,393 (21.07%)  events annotated
+
