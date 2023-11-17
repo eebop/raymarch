@@ -10,7 +10,6 @@
 
 #include <arrayfire.h>
 
-
 scene *allocScene(void) {
     scene *s = (scene *) malloc(sizeof(scene));
     s->c.cx = -8;
@@ -24,6 +23,8 @@ scene *allocScene(void) {
     s->settings.grabMouse = 0;
     s->settings.windowx = 800;
     s->settings.windowy = 800;
+    s->c.light = new af::array();
+    *s->c.light = af::constant(-2, 1, 1, 3);
     return s;
 }
 
@@ -37,46 +38,51 @@ void createSpheres(scene *s) {
 af::array distg(af::array loc, scene *s) {
     // return af::sqrt(x * x + y * y + z * z) - 1;
     //return af::sqrt(af::min(af::sum(af::pow(af::tile(loc, 1, 1, 1, 5)-af::tile(*s->p.x, s->settings.windowx, s->settings.windowy), 2), 2), 3)) - 1;
-    af::array x = loc(af::span, af::span, 2);
-    af::array y = af::sqrt(af::sum(af::pow(loc(af::span, af::span, af::seq(2)), 2), 2)) - 1.5;
-    return af::sqrt(af::pow(x, 2) + af::pow(y, 2)) - 1;
-}
-
-af::array distl(af::array loc, scene *s) {
-    return af::sqrt(af::sum(af::pow(loc, 2), 2));
+    auto a = loc - *s->p.x;
+    auto b = af::pow(a, 2);
+    auto c = af::sum(b, 2);
+    auto d = af::min(c, 3);
+    auto e = af::sqrt(d);
+    auto f = e - 1;
+    return f;
+    ////return af::sqrt(af::min(af::sum(af::pow(loc - *s->p.x, 2), 2), 3)) - 1;
+    //af::array x = loc(af::span, af::span, 2);
+    //af::array y = af::sqrt(af::sum(af::pow(loc(af::span, af::span, af::seq(2)), 2), 2)) - 1.5;
+    //return af::sqrt(af::pow(x, 2) + af::pow(y, 2)) - 1;
 }
 
 void parellelStep(af::array vectors, double x, double y, double z, char *pixels, scene *s) {
     af::array points = af::join(2, af::constant(x, s->settings.windowx, s->settings.windowy), af::constant(y, s->settings.windowx, s->settings.windowy), af::constant(z, s->settings.windowx, s->settings.windowy));
     af::array distance(s->settings.windowx, s->settings.windowy);
-    af::array ldist(s->settings.windowx, s->settings.windowy);
     af::array mindist(s->settings.windowx, s->settings.windowy);
 
-    for (int c=0;c!=15;c++) {
-        distance = distg(points, s);
-        points += af::tile(distance, 1, 1, 3) * vectors;
+    const int numpixels = s->settings.windowx * s->settings.windowy;
+    const int depth = 4;
+    const int steps = 25;
 
+    for (int c=0;c!=steps;c++) {
+        distance = distg(points, s) + 0.1;
+        points += distance * vectors;
     }
 
-    points = points + 2;
-    vectors = -points * af::rsqrt(af::sum(af::pow(points, 2), 2));
-    float add = 0.1;
-    for (int c=0;c!=15;c++) {
-        ldist = distl(points, s);
-        mindist = af::min(distg(points, s) + add, ldist);
-        points += af::tile(mindist, 1, 1, 3) * vectors;
-        add = 0;
+    af::array lightlen = af::sqrt(af::sum(af::pow(points - *s->c.light, 2), 2));
+    vectors = (points - *s->c.light) / lightlen;
+    af::array lpoints = af::tile(*s->c.light, 800, 800);
+
+    for (int c=0;c!=steps;c++) {
+        mindist = distg(lpoints, s) + 0.1;
+        lpoints += mindist * vectors;
+        lightlen -= mindist;
     }
-    char *r = ((distance <= 0.001) && (ldist < 0.1)).host<char>();
-    char *b = (distance <= 0.001).host<char>();
+
+    char *r = ((distance <= 0.01) && (lightlen < 0.01)).host<char>();
+    char *b = (distance <= 0.01).host<char>();
+
+
 #pragma omp parallel for
-    for (int q=0;q!=s->settings.windowx;q++) {
-        for (int e=0;e!=s->settings.windowy;e++) {
-            pixels[(q * s->settings.windowy + e) * 4 + 2] = r[q * s->settings.windowy + e] * 255;
-            //pixels[(q * 800 + e) * 4 + 1] = r[q * 800 + e] * 255;
-            pixels[(q * s->settings.windowy + e) * 4 + 1] = b[q * s->settings.windowy + e] * 255;
-           // pixels[(q * 800 + e) * 4 + 3] = b[q * 800 + e] * 255;
-        }
+    for (int q=0;q!=numpixels;q++) {
+        pixels[q * depth + 2] = r[q] * 255;
+        pixels[q * depth + 1] = b[q] * 255;
     }
     af::freeHost((void *) r);
     af::freeHost((void *) b);
@@ -103,8 +109,8 @@ void setup(scene *s, char *pixels) {
 }
 
 int main() {
+    //af::setBackend(AF_BACKEND_CPU);
     SDL_Init(SDL_INIT_VIDEO);
-    af::setBackend(AF_BACKEND_OPENCL);
     scene *s = allocScene();
     SDL_Window *w = SDL_CreateWindow("Test - Raymarch", 100, 100, s->settings.windowx, s->settings.windowy, SDL_TEXTUREACCESS_TARGET | SDL_WINDOW_RESIZABLE);
     SDL_Renderer *r = SDL_CreateRenderer(w, 0, SDL_RENDERER_SOFTWARE | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);

@@ -23,6 +23,7 @@ typedef struct {
     double cy;
     double cz;
     quaternion q;
+    af::array *light;
 } camera;
 
 typedef struct {

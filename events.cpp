@@ -41,9 +41,14 @@ void mouseUpdate(SDL_Event event, scene *s) {
 
 void update_debug(SDL_Event event, scene *s) {
     quaternion q;
+    float *lightdata;
     double i = 0;
     double j = 0;
     double k = 0;
+    double shift_multiplier = 1;
+    if (SDL_GetModState() & KMOD_SHIFT) {
+        shift_multiplier = 0.1;
+    }
     if (event.type == SDL_KEYDOWN) {
         switch (event.key.keysym.sym) {
         case SDLK_w:
@@ -75,6 +80,16 @@ void update_debug(SDL_Event event, scene *s) {
             break;
         case SDLK_UP:
             submitRotation(s, 2, 0);
+            break;
+        case SDLK_k:
+            *s->c.light = af::randu(1, 1, 3) * 10 - 5;
+            break;
+        case SDLK_j:
+            lightdata = s->c.light->host<float>();
+            s->c.cx = lightdata[0];
+            s->c.cy = lightdata[1];
+            s->c.cz = lightdata[2];
+            af::freeHost((void *) lightdata);
             break;
         case SDLK_l:
             if (s->settings.grabMouse) {
@@ -119,8 +134,8 @@ void update_debug(SDL_Event event, scene *s) {
     multiplyWithInverseFirstQuaternion(&(s->c.q), &q, &q);
     multiplyQuaternion(&q, &(s->c.q), &q);
 
-    s->c.cx += q.i;
-    s->c.cy += q.j;
-    s->c.cz += q.k;
+    s->c.cx += q.i * shift_multiplier;
+    s->c.cy += q.j * shift_multiplier;
+    s->c.cz += q.k * shift_multiplier;
 
 }
